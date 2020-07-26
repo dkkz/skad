@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "skad",
   "version": "1.0",
-  "description": "I don't like ad",
+  "description": "I don't like YouTube AD",
   "permissions": ["tabs"],
   "icons": {
     "128": "icon.png"

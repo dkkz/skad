@@ -9,7 +9,7 @@
           characterData: true,
           subtree: true,
         };
-        const target = document.querySelector(".video-ads.ytp-ad-module");
+        const target = document.querySelector(".ytd-player");
         const observer = new MutationObserver(() => {
           const adText = document.querySelector(".ytp-ad-skip-button-text");
           const skipButton = document.querySelector(".ytp-ad-skip-button");
@@ -17,8 +17,8 @@
           const closeButton = document.querySelector(
             ".ytp-ad-overlay-close-button"
           );
-          if (adText) skipButton.click();
-          if (banner) closeButton.click();
+          adText && skipButton.click();
+          banner && closeButton.click();
         });
         target && observer.observe(target, config);
       }, 1000);

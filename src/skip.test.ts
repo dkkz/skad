@@ -1,11 +1,17 @@
-import { observeAd } from './skip';
+import { observeComponent } from './skip';
 import { videoDom } from './videoDom';
+const main = {
+  observeComponent,
+};
 
-describe('Click youtube AD', function () {
+describe('Remove youtube AD', function () {
   document.body.innerHTML = videoDom;
-  it('should remove AD', function () {
-    ['click', 'load'].map((event) =>
-      document.addEventListener(event, observeAd, { once: true })
+  it('should be clicked button', function () {
+    const spy = jest.spyOn(main, 'observeComponent');
+    main.observeComponent(
+      '.style-scope.ytd-popup-container',
+      '.yt-simple-endpoint.style-scope.ytd-button-renderer'
     );
+    expect(spy).toBeCalled();
   });
 });

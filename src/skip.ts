@@ -1,27 +1,34 @@
-export const observeAd = (): void => {
-  const config: MutationObserverInit = {
-    attributes: true,
-    childList: true,
-    characterData: true,
-    subtree: true,
-  };
-  const target = document.querySelector('.ytd-player');
-  const adText = document.querySelector('.ytp-ad-skip-button-text');
-  const skipButton: HTMLButtonElement | null = document.querySelector(
-    '.ytp-ad-skip-button'
-  );
-  const banner = document.querySelector('.ytp-ad-overlay-image');
-  const closeButton: HTMLButtonElement | null = document.querySelector(
-    '.ytp-ad-overlay-close-button'
-  );
+const config: MutationObserverInit = {
+  attributes: true,
+  childList: true,
+  characterData: true,
+  subtree: true,
+};
+
+export const observeComponent = (container: string, button: string): void => {
+  const target = document.querySelector(container);
+
   const observer: MutationObserver = new MutationObserver(() => {
-    if (adText && skipButton) skipButton.click();
-    if (banner && closeButton) closeButton.click();
+    const removeButton: HTMLAnchorElement | null = document.querySelector(
+      button
+    );
+    removeButton && removeButton.click();
   });
 
   target && observer.observe(target, config);
 };
 
 ['click', 'load'].map((event) =>
-  document.addEventListener(event, observeAd, { once: true })
+  document.addEventListener(
+    event,
+    () => {
+      observeComponent(
+        '.style-scope.ytd-popup-container',
+        '.yt-simple-endpoint.style-scope.ytd-button-renderer'
+      );
+      observeComponent('.ytd-player', '.ytp-ad-skip-button');
+      observeComponent('.ytd-player', '.ytp-ad-overlay-close-button');
+    },
+    { once: true }
+  )
 );

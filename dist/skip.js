@@ -1,23 +1,21 @@
-export var observeAd = function () {
-    var config = {
-        attributes: true,
-        childList: true,
-        characterData: true,
-        subtree: true,
-    };
-    var target = document.querySelector('.ytd-player');
-    var adText = document.querySelector('.ytp-ad-skip-button-text');
-    var skipButton = document.querySelector('.ytp-ad-skip-button');
-    var banner = document.querySelector('.ytp-ad-overlay-image');
-    var closeButton = document.querySelector('.ytp-ad-overlay-close-button');
+var config = {
+    attributes: true,
+    childList: true,
+    characterData: true,
+    subtree: true,
+};
+export var observeComponent = function (container, button) {
+    var target = document.querySelector(container);
     var observer = new MutationObserver(function () {
-        if (adText && skipButton)
-            skipButton.click();
-        if (banner && closeButton)
-            closeButton.click();
+        var removeButton = document.querySelector(button);
+        removeButton && removeButton.click();
     });
     target && observer.observe(target, config);
 };
 ['click', 'load'].map(function (event) {
-    return document.addEventListener(event, observeAd, { once: true });
+    return document.addEventListener(event, function () {
+        observeComponent('.style-scope.ytd-popup-container', '.yt-simple-endpoint.style-scope.ytd-button-renderer');
+        observeComponent('.ytd-player', '.ytp-ad-skip-button');
+        observeComponent('.ytd-player', '.ytp-ad-overlay-close-button');
+    }, { once: true });
 });

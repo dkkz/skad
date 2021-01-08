@@ -23,11 +23,11 @@ export const observeComponent = (container: string, button: string): void => {
     event,
     () => {
       observeComponent(
-        '.style-scope.ytd-popup-container',
-        '.yt-simple-endpoint.style-scope.ytd-button-renderer'
+        '.button-container.style-scope.ytd-mealbar-promo-renderer',
+        '#dismiss-button #text.style-scope.ytd-button-renderer.style-text.size-default'
       );
-      observeComponent('.ytd-player', '.ytp-ad-skip-button');
-      observeComponent('.ytd-player', '.ytp-ad-overlay-close-button');
+      observeComponent('.video-ads', '.ytp-ad-skip-button');
+      observeComponent('.video-ads', '.ytp-ad-overlay-close-button');
     },
     { once: true }
   )

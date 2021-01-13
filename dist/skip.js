@@ -14,7 +14,7 @@ export var observeComponent = function (container, button) {
 };
 ['click', 'load'].map(function (event) {
     return document.addEventListener(event, function () {
-        observeComponent('.style-scope.ytd-popup-container', '.yt-simple-endpoint.style-scope.ytd-button-renderer');
+        observeComponent('.button-container.style-scope.ytd-mealbar-promo-renderer', '#dismiss-button #text.style-scope.ytd-button-renderer.style-text.size-default');
         observeComponent('.video-ads', '.ytp-ad-skip-button');
         observeComponent('.video-ads', '.ytp-ad-overlay-close-button');
     }, { once: true });

@@ -18,17 +18,11 @@ export const observeComponent = (container: string, button: string): void => {
   target && observer.observe(target, config);
 };
 
-['click', 'load'].map((event) =>
-  document.addEventListener(
-    event,
-    () => {
-      observeComponent(
-        '.button-container.style-scope.ytd-mealbar-promo-renderer',
-        '#dismiss-button #text.style-scope.ytd-button-renderer.style-text.size-default'
-      );
-      observeComponent('.video-ads', '.ytp-ad-skip-button');
-      observeComponent('.video-ads', '.ytp-ad-overlay-close-button');
-    },
-    { once: true }
-  )
-);
+(() => {
+  observeComponent(
+    '.button-container.style-scope.ytd-mealbar-promo-renderer',
+    '#dismiss-button #text.style-scope.ytd-button-renderer.style-text.size-default'
+  );
+  observeComponent('.video-ads', '.ytp-ad-skip-button');
+  observeComponent('.video-ads', '.ytp-ad-overlay-close-button');
+})();

@@ -1,3 +1,4 @@
+(() => {
 const observeAd = () => {
   const config = {
     attributes: true,
@@ -17,6 +18,5 @@ const observeAd = () => {
   target && observer.observe(target, config);
 };
 
-["click", "load"].map((event) =>
-  window.addEventListener(event, observeAd, { once: true })
-);
+observeAd();
+})();

@@ -3,7 +3,7 @@
   "name": "skad",
   "version": "1.0",
   "description": "I don't like YouTube AD",
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "*://*.youtube.com/*"],
   "icons": {
     "128": "icon.png"
   },
@@ -12,10 +12,11 @@
     "default_icon": "icon.png",
     "default_popup": "index.html"
   },
+  "run_at": "document_start",
   "content_scripts": [
     {
       "matches": [
-        "https://www.youtube.com/*"
+        "*://*.youtube.com/*"
       ],
       "js": ["skip.js"]
     }

@@ -41,14 +41,12 @@ export const observeComponent = (data: ConfigType): void => {
 
 export const hideElement = (element: string): string => {
   const target = <HTMLAnchorElement>document.querySelector(element);
-  return (target.style.display = 'none');
+  if (target) {
+    return (target.style.display = 'none');
+  } else {
+    return '';
+  }
 };
 
-document.body.addEventListener(
-  'yt-navigate-start',
-  () => {
-    observeComponent(skipConfig);
-    hideElement('ytd-popup-container');
-  },
-  { once: true }
-);
+observeComponent(skipConfig);
+hideElement('ytd-popup-container');

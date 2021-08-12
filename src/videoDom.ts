@@ -1,4 +1,49 @@
 export const videoDom = `
+<ytd-popup-container class="style-scope ytd-app">
+   <!--css-build:shady-->
+   <tp-yt-paper-dialog role="dialog" tabindex="-1" class="style-scope ytd-popup-container" style="outline: none; position: fixed; inset: auto auto 0px 0px; margin: 16px; box-sizing: border-box; max-height: 192px; max-width: 1888px; display: none;" aria-hidden="true">
+      <!--css-build:shady-->
+      <ytd-mealbar-promo-renderer dialog="true" class="style-scope ytd-popup-container" tabindex="-1" has-full-height-image="">
+         <!--css-build:shady-->
+         <yt-img-shadow id="icon" notify-on-loaded="" class="style-scope ytd-mealbar-promo-renderer no-transition" style="background-color: transparent;" loaded="">
+            <!--css-build:shady--><img id="img" class="style-scope yt-img-shadow" alt="" src="https://www.gstatic.com/youtube/img/promos/growth/32565a681f5420b051f863e20a723490d94d07306de7b379862f0ec4a0d6676c_384x384.png">
+         </yt-img-shadow>
+         <yt-icon id="alternate-icon" class="style-scope ytd-mealbar-promo-renderer" hidden="">
+            <!--css-build:shady-->
+         </yt-icon>
+         <div id="main" class="style-scope ytd-mealbar-promo-renderer">
+            <h2 class="ytd-mealbar-promo-renderer-message-title style-scope ytd-mealbar-promo-renderer">
+               Where music meets your desktop
+            </h2>
+            <div id="message-text" class="ytd-mealbar-promo-renderer-message-text style-scope ytd-mealbar-promo-renderer">
+               Our desktop experience was built to be your music destination. Listen to official albums &amp; more.
+            </div>
+            <dom-repeat class="style-scope ytd-mealbar-promo-renderer">
+               <template is="dom-repeat"></template>
+            </dom-repeat>
+            <div class="button-container style-scope ytd-mealbar-promo-renderer">
+               <ytd-button-renderer id="dismiss-button" class="style-scope ytd-mealbar-promo-renderer style-text size-default" use-keyboard-focused="" button-renderer="true" is-paper-button="">
+                  <a class="yt-simple-endpoint style-scope ytd-button-renderer" tabindex="-1">
+                     <tp-yt-paper-button id="button" class="style-scope ytd-button-renderer style-text size-default" role="button" tabindex="0" animated="" elevation="0" aria-disabled="false" aria-label="No thanks">
+                        <!--css-build:shady-->
+                        <yt-formatted-string id="text" class="style-scope ytd-button-renderer style-text size-default">No thanks</yt-formatted-string>
+                     </tp-yt-paper-button>
+                  </a>
+               </ytd-button-renderer>
+               <ytd-button-renderer id="action-button" class="style-scope ytd-mealbar-promo-renderer style-blue-text size-default" use-keyboard-focused="" button-renderer="true" is-paper-button="">
+                  <a class="yt-simple-endpoint style-scope ytd-button-renderer" tabindex="-1" href="https://music.youtube.com/">
+                     <tp-yt-paper-button id="button" class="style-scope ytd-button-renderer style-blue-text size-default" role="button" tabindex="0" animated="" elevation="0" aria-disabled="false" aria-label="Check it out">
+                        <!--css-build:shady-->
+                        <yt-formatted-string id="text" class="style-scope ytd-button-renderer style-blue-text size-default">Check it out</yt-formatted-string>
+                     </tp-yt-paper-button>
+                  </a>
+               </ytd-button-renderer>
+            </div>
+         </div>
+      </ytd-mealbar-promo-renderer>
+   </tp-yt-paper-dialog>
+</ytd-popup-container>
+
 <ytd-player id="ytd-player" context="WEB_PLAYER_CONTEXT_CONFIG_ID_KEVLAR_WATCH" class="style-scope ytd-watch-flexy" style="touch-action: pan-down;"><!--css-build:shady-->
   <div id="container" class="style-scope ytd-player">
     <div class="html5-video-player ytp-transparent ytp-exp-bottom-control-flexbox ytp-exp-bigger-button ytp-hide-info-bar ytp-large-width-mode ad-created ad-showing ad-interrupting paused-mode" tabindex="-1" id="movie_player" data-version="/s/player/5dd3f3b2/player_ias.vflset/en_US/base.js" aria-label="YouTube Video Player">

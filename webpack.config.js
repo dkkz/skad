@@ -16,7 +16,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.ts', '.js'],
+    extensions: ['.ts', '.js'],
   },
   output: {
     filename: 'skip.js',
